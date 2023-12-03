@@ -1,8 +1,9 @@
 function nameSubmit() {
-  var sName = "Student name: " + document.getElementById("sName").value;
-  var sId = "Student ID: " + document.getElementById("sId").value;
-  var sInfo = document.getElementById("sInfo");
-  sInfo.innerHTML = sName + "<br>" + sId;
-  console.log(sInfo);
+  var sName = document.getElementById("sName").value;
+  var sId = document.getElementById("sId").value;
+  const studData = {
+    name: sName,
+    id: sId,
+  };
+  localStorage.setItem(studData, JSON.stringify(studData));
 }
-
