@@ -8,6 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<script src="./js/bootstrap.bundle.min.js"></script>
+		<link rel="stylesheet" href="./style.css">
         <!-- Place favicon.ico in the root directory -->
 
     </head>
@@ -20,8 +23,17 @@
             </p>
         <![endif]-->
         <h1> Quiz App </h1>
-        <div id="privacy-violation">
+        <div class="container" id="privacy-violation">
             <!-- Name ID etc -->
+            <form class action:"javascript:;" onsubmit:"nameSubmit(this)">
+                <label class="form-label" for="sname"> Student Name </label>
+                <input class="form-control" type="text" id="sname", name="sname">
+                <br>
+                <label class="form-label" for="sid"> Student ID </label>
+                <input class="form-control" type="text" id="sid", name="sid">
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
 
         <div id="quiz-screen">
