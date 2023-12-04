@@ -7,8 +7,8 @@ function nameSubmit() {
     startTime: Date.now(),
   };
   localStorage.setItem(studData, JSON.stringify(studData));
-  var privacy-violation = document.getElementById("privacy-violation");
-  privacy-violation.style.display = "none";
+  var privacyViolation = document.getElementById("privacyViolation");
+  privacyViolation.style.display = "none";
 }
 
 function initScore() {
