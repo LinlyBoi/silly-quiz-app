@@ -104,6 +104,7 @@ function setQ(n) {
   question.innerText = questions[n].title;
 
 }
+var questionCounter = 0;
 function nextQ() {
     questionCounter++;
   setQ(questionCounter);
