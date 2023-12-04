@@ -102,6 +102,13 @@ console.log(questions);
 function setQ(n) {
   var question = document.getElementById("question")
   question.innerText = questions[n].title;
+  for (let i = 0; i < questions.length; i++) {
+    let index = i+1;
+    var q = document.getElementById(`ans${index}`);
+    for (let j = 0; j < question.answers.length; j++) {
+      q.innerText = questions[i].answers[i].text;
+    }
+  }
 
 }
 var questionCounter = 0;
