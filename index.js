@@ -22,3 +22,13 @@ function nameSubmit() {
 function initScore() {
   const user = JSON.parse(localStorage.getItem("studData"));
 }
+
+function nextQ() {
+}
+
+function prevQ() {
+}
+
+function questionSubmit() {
+
+}
