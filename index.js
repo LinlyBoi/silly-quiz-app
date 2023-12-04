@@ -32,12 +32,15 @@ function finishQuiz() {
 }
 function initScore() {
   finishQuiz();
+
   const user = JSON.parse(localStorage.getItem("studData"));
   var sInfoName = document.getElementById("sInfoName");
   var sInfoId = document.getElementById("sInfoId");
   var sInfoTime = document.getElementById("sInfoTime");
   sInfoName.innerText = "Student name: " + user.name;
   sInfoId.innerText = "Student ID: " + user.id;
+
+  var sInfoTime = document.getElementById("sInfoTime");
   var time_elapsed = new Date();
   var start_time = new Date(user.startTime);
   console.log(start_time);
@@ -59,3 +62,39 @@ function prevQ() {
 function questionSubmit() {
 
 }
+
+const sampleQuestion = {
+  title: "5x5?",
+  answers: [],
+};
+const sampleAnswer = {
+  text: "answer 1",
+  correct: false,
+};
+
+//Questions
+function generateQuestion(n1, n2, a1, a2, a3, a4) {
+  var question = JSON.parse(JSON.stringify(sampleQuestion));
+  question.answers = [
+    JSON.parse(JSON.stringify(sampleAnswer)),
+    JSON.parse(JSON.stringify(sampleAnswer)),
+    JSON.parse(JSON.stringify(sampleAnswer)),
+    JSON.parse(JSON.stringify(sampleAnswer))
+  ];
+  var answer_values = [a1, a2, a3, a4];
+  question.title = n1 + "x" + n2;
+  for (let i = 0; i < 4; i++) {
+    question.answers[i].text = answer_values[i];
+    if (n1 * n2 == answer_values[i])
+      question.answers[i].correct = true
+  }
+  return question;
+}
+const questions = [
+  generateQuestion(2, 1, 2, 1, 3, 21),
+  generateQuestion(2, 6, 7, 6, 4, 23),
+  generateQuestion(2, 5, 4, 5, 10, 24),
+  generateQuestion(3, 7, 2, 7, 14, 21),
+  generateQuestion(6, 6, 36, 6, 14, 21),
+]
+console.log(questions);
