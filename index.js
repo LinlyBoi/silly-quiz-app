@@ -6,6 +6,14 @@ function nameSubmit() {
     id: sId,
     startTime: Date.now(),
   };
+  const sampleQuestion = {
+    title: "5x5?",
+    answers:
+  }
+  const sampleAnswer {
+    text: "answer 1",
+    correct: true,
+  },
   localStorage.setItem(studData, JSON.stringify(studData));
   var privacyViolation = document.getElementById("privacyViolation");
   privacyViolation.style.display = "none";
