@@ -4,7 +4,7 @@ function nameSubmit() {
   const studData = {
     name: sName,
     id: sId,
-    startTime: Date.now(),
+    startTime: new Date(),
   };
   localStorage.setItem("studData", JSON.stringify(studData));
   var privacyViolation = document.getElementById("privacyViolation");
@@ -35,8 +35,14 @@ function initScore() {
   const user = JSON.parse(localStorage.getItem("studData"));
   var sInfoName = document.getElementById("sInfoName");
   var sInfoId = document.getElementById("sInfoId");
+  var sInfoTime = document.getElementById("sInfoTime");
   sInfoName.innerText = "Student name: " + user.name;
   sInfoId.innerText = "Student ID: " + user.id;
+  var time_elapsed = new Date();
+  var start_time = new Date(user.startTime);
+  console.log(start_time);
+  time_elapsed = time_elapsed.getSeconds() - start_time.getSeconds();
+  sInfoTime.innerText = "Time elapsed: " + time_elapsed;
   var scoreScreen = document.getElementById("scoreScreen");
   // console.log(user.name);
   // console.log(sInfoId.innerText);
