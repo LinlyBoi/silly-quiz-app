@@ -42,7 +42,7 @@ function initScore() {
   var start_time = new Date(user.startTime);
   console.log(start_time);
   time_elapsed = time_elapsed.getSeconds() - start_time.getSeconds();
-  sInfoTime.innerText = "Time elapsed: " + time_elapsed;
+  sInfoTime.innerText = "Time elapsed: " + time_elapsed + " seconds";
   var scoreScreen = document.getElementById("scoreScreen");
   // console.log(user.name);
   // console.log(sInfoId.innerText);
