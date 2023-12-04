@@ -4,6 +4,7 @@ function nameSubmit() {
   const studData = {
     name: sName,
     id: sId,
+    startTime: Date.now(),
   };
   localStorage.setItem(studData, JSON.stringify(studData));
 }
