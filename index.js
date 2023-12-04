@@ -111,6 +111,11 @@ function nextQ() {
 }
 
 function prevQ() {
+  questionCounter--;
+  setQ(questionCounter);
+  if (questionCounter > 0)
+}
+
 }
 
 function questionSubmit() {
