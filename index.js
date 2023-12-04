@@ -26,7 +26,12 @@ function initQuiz() {
   var quizScreen = document.getElementById("quizScreen");
   quizScreen.style.display = "block";
 }
+function finishQuiz() {
+  var quizScreen = document.getElementById("quizScreen");
+  quizScreen.style.display = "none";
+}
 function initScore() {
+  finishQuiz();
   const user = JSON.parse(localStorage.getItem("studData"));
   var sInfoName = document.getElementById("sInfoName");
   var sInfoId = document.getElementById("sInfoId");
