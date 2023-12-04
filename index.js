@@ -98,3 +98,21 @@ const questions = [
   generateQuestion(6, 6, 36, 6, 14, 21),
 ]
 console.log(questions);
+
+function setQ(n) {
+  var question = Document.getElementById("question")
+  question.innerText = questions[n].title;
+
+}
+function nextQ() {
+    questionCounter++;
+  setQ(questionCounter);
+  if (questionCounter < questions.length)
+}
+
+function prevQ() {
+}
+
+function questionSubmit() {
+
+}
