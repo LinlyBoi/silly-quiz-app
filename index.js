@@ -100,12 +100,13 @@ const questions = [
 console.log(questions);
 
 function setQ(n) {
-  var question = Document.getElementById("question")
+  var question = document.getElementById("question")
   question.innerText = questions[n].title;
 
 }
 var questionCounter = 0;
 function nextQ() {
+  if (questionCounter < questions.length)
     questionCounter++;
   setQ(questionCounter);
   if (questionCounter < questions.length)
@@ -115,6 +116,8 @@ function prevQ() {
   questionCounter--;
   setQ(questionCounter);
   if (questionCounter > 0)
+    questionCounter--;
+  setQ(questionCounter);
 }
 
 }
