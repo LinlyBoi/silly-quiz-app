@@ -9,6 +9,7 @@ function nameSubmit() {
   localStorage.setItem("studData", JSON.stringify(studData));
   var privacyViolation = document.getElementById("privacyViolation");
   privacyViolation.style.display = "none";
+  initQuiz();
 }
 
   //////////////////////////////
@@ -21,6 +22,10 @@ function nameSubmit() {
   //   correct: true,         //
   // };                       //
   //////////////////////////////
+function initQuiz() {
+  var quizScreen = document.getElementById("quizScreen");
+  quizScreen.style.display = "block";
+}
 function initScore() {
   const user = JSON.parse(localStorage.getItem("studData"));
   var sInfoName = document.getElementById("sInfoName");
