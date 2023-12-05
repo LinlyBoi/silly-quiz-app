@@ -5,6 +5,7 @@ function nameSubmit() {
     name: sName,
     id: sId,
     startTime: new Date(),
+    score: 0,
   };
   localStorage.setItem("studData", JSON.stringify(studData));
   var privacyViolation = document.getElementById("privacyViolation");
@@ -97,7 +98,7 @@ const questions = [
   generateQuestion(3, 7, 2, 7, 14, 21),
   generateQuestion(6, 6, 36, 6, 14, 21),
 ]
-console.log(questions);
+console.log(questions[0].answers);
 
 function setQ(n) {
   var question = document.getElementById("question")
@@ -110,9 +111,10 @@ function setQ(n) {
   }
 
 }
-var questionCounter = 0;
+var questionCounter = 1;
+setQ(questionCounter);
 function nextQ() {
-  if (questionCounter < questions.length)
+  if (questionCounter < questions.length - 1)
     questionCounter++;
   setQ(questionCounter);
   if (questionCounter < questions.length)
