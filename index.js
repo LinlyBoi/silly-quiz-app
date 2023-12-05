@@ -29,7 +29,40 @@ function initQuiz() {
 }
 function finishQuiz() {
   var quizScreen = document.getElementById("quizScreen");
+  var user = JSON.parse(localStorage.getItem("studData"));
+  var past_users = JSON.parse(localStorage.getItem("history"))
+  if (past_users == null)
+    past_users = []
+  past_users.push(user)
+  updateTable(user, past_users)
   quizScreen.style.display = "none";
+}
+function updateTable(user, past_users) {
+  let tableHead = document.createElement("thead");
+  let tableRow = document.createElement("trow");
+  let table = document.createElement("table");
+  let scores = document.getElementById("history");
+  let cols = Object.keys(user);
+  cols.forEach((item) => {
+    let tHead = document.createElement("th");
+    let tableRow = document.createElement("trow");
+    tableHead.innerText = item;
+    tableRow.appendChild(th);
+  });
+  tableHead=.appenchChild(tableRow);
+  table.append(tableRow);
+
+  past_users.forEach((item => {
+    let tableRow = document.createElement("trow");
+    let values = Object.values(item);
+    values.forEach((element) => {
+      let td = document.createElement("td");
+      td.innerText = element;
+      tableRow.appendChild(td);
+    });
+    scores.appendChild(table);
+
+  }))
 }
 function initScore() {
   finishQuiz();
