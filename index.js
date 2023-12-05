@@ -128,8 +128,15 @@ function prevQ() {
   setQ(questionCounter);
 }
 
-}
+var past_users = []
 
-function questionSubmit() {
-
+function answerCheck(n) {
+  const currentQuestion = questions[questionCounter];
+  if (currentQuestion.answers[n].correct)
+    {
+      var user = JSON.parse(localStorage.getItem("studData"));
+      user.score += 1;
+      localStorage.setItem("studData", JSON.stringify(studData));
+    }
+  nextQ();
 }

@@ -43,12 +43,12 @@
             <div id="choices" class="card-body">
                 <form action="javascript:;">
                     <div>
-                        <button id="ans1" class="btn btn-primary" type="button" > </button>
-                        <button id="ans2" class="btn btn-primary" type="button" ></button>
+                        <button id="ans1" onclick="answerCheck(0)" class="btn btn-primary" type="button" > </button>
+                        <button id="ans2" onclick="answerCheck(1)" class="btn btn-primary" type="button" ></button>
                     </div>
                     <div>
-                        <button id="ans3" class="btn btn-primary" type="button"></button>
-                        <button id="ans4" class="btn btn-primary" type="button"></button>
+                        <button id="ans3" onclick="answerCheck(2)" class="btn btn-primary" type="button"></button>
+                        <button id="ans4" onclick="answerCheck(3)" class="btn btn-primary" type="button"></button>
                     </div>
                 <button onclick="questionSubmit()" type="submit" class="btn btn-primary">Submit</button>
             </form>
