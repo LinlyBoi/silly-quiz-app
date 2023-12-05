@@ -47,9 +47,9 @@ function updateTable(user, past_users) {
     let tHead = document.createElement("th");
     let tableRow = document.createElement("trow");
     tableHead.innerText = item;
-    tableRow.appendChild(th);
+    tableRow.appendChild(tableHead);
   });
-  tableHead.appenchChild(tableRow);
+  tableHead.appendChild(tableRow);
   table.append(tableRow);
 
   past_users.forEach((item => {
