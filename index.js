@@ -41,7 +41,7 @@ function updateTable(user, past_users) {
   let tableHead = document.createElement("thead");
   let tableRow = document.createElement("trow");
   let table = document.createElement("table");
-  let scores = document.getElementById("history");
+  let scores = document.getElementById("scoreTable");
   let cols = Object.keys(user);
   cols.forEach((item) => {
     let tHead = document.createElement("th");
