@@ -49,7 +49,7 @@ function updateTable(user, past_users) {
     tableHead.innerText = item;
     tableRow.appendChild(th);
   });
-  tableHead=.appenchChild(tableRow);
+  tableHead.appenchChild(tableRow);
   table.append(tableRow);
 
   past_users.forEach((item => {
