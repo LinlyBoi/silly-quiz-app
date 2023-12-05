@@ -169,7 +169,7 @@ function answerCheck(n) {
     {
       var user = JSON.parse(localStorage.getItem("studData"));
       user.score += 1;
-      localStorage.setItem("studData", JSON.stringify(studData));
+      localStorage.setItem("studData", JSON.stringify(user));
     }
   nextQ();
 }
