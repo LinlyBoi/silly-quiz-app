@@ -102,12 +102,11 @@ console.log(questions);
 function setQ(n) {
   var question = document.getElementById("question")
   question.innerText = questions[n].title;
-  for (let i = 0; i < questions.length; i++) {
-    let index = i+1;
-    var q = document.getElementById(`ans${index}`);
-    for (let j = 0; j < question.answers.length; j++) {
-      q.innerText = questions[i].answers[i].text;
-    }
+  var labels = ["label1", "label2", "label3", "label4",]
+  var current_question = JSON.parse(JSON.stringify(questions[n].answers));
+  for (let i = 0; i < current_question.length; i++) {
+      var q = document.getElementById(labels[i]);
+      q.innerText = current_question[i].text;
   }
 
 }
