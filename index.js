@@ -98,7 +98,7 @@ const questions = [
   generateQuestion(3, 7, 2, 7, 14, 21),
   generateQuestion(6, 6, 36, 6, 14, 21),
 ]
-console.log(questions[0].answers);
+// console.log(questions[0].answers);
 
 function setQ(n) {
   var question = document.getElementById("question")
