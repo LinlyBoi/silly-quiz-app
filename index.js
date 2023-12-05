@@ -103,7 +103,7 @@ console.log(questions[0].answers);
 function setQ(n) {
   var question = document.getElementById("question")
   question.innerText = questions[n].title;
-  var labels = ["label1", "label2", "label3", "label4",]
+  var labels = ["ans1", "ans2", "ans3", "ans4",]
   var current_question = JSON.parse(JSON.stringify(questions[n].answers));
   for (let i = 0; i < current_question.length; i++) {
       var q = document.getElementById(labels[i]);
