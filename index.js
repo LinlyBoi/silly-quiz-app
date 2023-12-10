@@ -1,3 +1,4 @@
+console.log(JSON.parse(localStorage.getItem("studData")));
 function nameSubmit() {
   var sName = document.getElementById("sName").value;
   var sId = document.getElementById("sId").value;
@@ -6,8 +7,10 @@ function nameSubmit() {
     id: sId,
     startTime: new Date(),
     score: 0,
+    startTime: new Date(),
   };
   localStorage.setItem("studData", JSON.stringify(studData));
+  localStorage.setItem("startTime", JSON.stringify(startTime));
   var privacyViolation = document.getElementById("privacyViolation");
   privacyViolation.style.display = "none";
   initQuiz();
@@ -36,33 +39,46 @@ function finishQuiz() {
   past_users.push(user)
   updateTable(user, past_users)
   quizScreen.style.display = "none";
+  localStorage.setItem("history", JSON.stringify(past_users))
 }
+
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+    var x = a[key];
+    var y = b[key];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+
 function updateTable(user, past_users) {
   let tableHead = document.createElement("thead");
-  let tableRow = document.createElement("trow");
-  let table = document.createElement("table");
-  let scores = document.getElementById("scoreTable");
+  let tableRow = document.createElement("tr");
+  let table = document.getElementById("scoreTable");
+  let scores = document.getElementById("scoreScreen");
   let cols = Object.keys(user);
+  console.log(cols);
   cols.forEach((item) => {
     let tHead = document.createElement("th");
-    let tableRow = document.createElement("trow");
+    let tableRow = document.createElement("tr");
     tableHead.innerText = item;
     tableRow.appendChild(tableHead);
   });
   tableHead.appendChild(tableRow);
   table.append(tableRow);
 
-  past_users.forEach((item => {
-    let tableRow = document.createElement("trow");
+  past_users.forEach((item) => {
+    let tableRow = document.createElement("tr");
     let values = Object.values(item);
     values.forEach((element) => {
       let td = document.createElement("td");
       td.innerText = element;
       tableRow.appendChild(td);
     });
-    scores.appendChild(table);
+    table.appendChild(tableRow);
 
-  }))
+  })
+  table.classList.add("table");
+  scores.appendChild(table);
 }
 function initScore() {
   finishQuiz();
@@ -76,8 +92,7 @@ function initScore() {
 
   var sInfoTime = document.getElementById("sInfoTime");
   var time_elapsed = new Date();
-  var start_time = new Date(user.startTime);
-  console.log(start_time);
+  var start_time = new Date(JSON.parse(localStorage.getItem("startTime")));
   time_elapsed = time_elapsed.getSeconds() - start_time.getSeconds();
   sInfoTime.innerText = "Time elapsed: " + time_elapsed + " seconds";
   var scoreScreen = document.getElementById("scoreScreen");
@@ -126,7 +141,7 @@ function generateQuestion(n1, n2, a1, a2, a3, a4) {
 }
 const questions = [
   generateQuestion(2, 1, 2, 1, 3, 21),
-  generateQuestion(2, 6, 7, 6, 4, 23),
+  generateQuestion(2, 6, 7, 12, 4, 23),
   generateQuestion(2, 5, 4, 5, 10, 24),
   generateQuestion(3, 7, 2, 7, 14, 21),
   generateQuestion(6, 6, 36, 6, 14, 21),
@@ -144,11 +159,13 @@ function setQ(n) {
   }
 
 }
-var questionCounter = 1;
+var questionCounter = 0;
 setQ(questionCounter);
 function nextQ() {
   if (questionCounter < questions.length - 1)
     questionCounter++;
+  else
+    finishQuiz();
   setQ(questionCounter);
   if (questionCounter < questions.length)
 }
