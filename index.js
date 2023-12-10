@@ -9,6 +9,7 @@ function nameSubmit() {
     score: 0,
     startTime: new Date(),
   };
+  const startTime = new Date();
   localStorage.setItem("studData", JSON.stringify(studData));
   localStorage.setItem("startTime", JSON.stringify(startTime));
   var privacyViolation = document.getElementById("privacyViolation");
@@ -165,7 +166,7 @@ function nextQ() {
   if (questionCounter < questions.length - 1)
     questionCounter++;
   else
-    finishQuiz();
+    initScore();
   setQ(questionCounter);
   if (questionCounter < questions.length)
 }
