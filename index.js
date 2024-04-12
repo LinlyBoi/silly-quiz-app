@@ -168,7 +168,7 @@ function nextQ() {
   else
     initScore();
   setQ(questionCounter);
-  if (questionCounter < questions.length)
+  // if (questionCounter < questions.length)
 }
 
 function prevQ() {
